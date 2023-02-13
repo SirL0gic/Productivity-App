@@ -42,7 +42,7 @@ function App() {
 
           </Row>
 
-          <Row className="task-tems">
+          <Row className="task-items">
             <p>item1</p>
           </Row>
 
