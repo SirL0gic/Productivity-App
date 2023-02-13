@@ -17,7 +17,7 @@ function App() {
     <Container fluid className="App">
 
       <Row className="title-area">
-        <h1>&#128221; To Do List &#128221;</h1>
+        <h1 className="text-pop-up-top">&#128221; To Do List &#128221;</h1>
       </Row>
 
       <Row className="list-area">
@@ -25,12 +25,12 @@ function App() {
         <Container>
           <Row className="date-time">
 
-            <Col>
+            <Col className="col-day">
               <p>1</p>
             </Col>
 
             <Col>
-              <ul>
+              <ul className="date-list">
                 <li>Jan</li>
                 <li>2023</li>
               </ul>
