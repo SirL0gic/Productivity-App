@@ -9,6 +9,10 @@
   color: white;
 }
 
+.title-area{
+  margin-top: -600px;
+}
+
 .list-container {
   background-color: white;
   color: rgba(33, 30, 30, 0.916);
@@ -17,6 +21,7 @@
 .list-area{
   background-color: white;
   color: rgb(33, 29, 29);
+  border-radius: 20px;
 }
 
 
