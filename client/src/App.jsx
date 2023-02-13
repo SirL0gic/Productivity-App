@@ -17,7 +17,7 @@ function App() {
     <Container fluid className="App">
 
       <Row className="title-area">
-        <h1>&#128221; To Do List in React &#128221;</h1>
+        <h1>&#128221; To Do List &#128221;</h1>
       </Row>
 
       <Row className="list-area">
