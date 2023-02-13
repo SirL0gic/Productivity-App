@@ -37,7 +37,7 @@ function App() {
             </Col>
 
             <Col>
-              <p>Monday</p>
+              <p className="day-area">Monday</p>
             </Col>
 
           </Row>
@@ -47,7 +47,7 @@ function App() {
           </Row>
 
           <Row className="button-area">
-      <Button variant="primary">Primary</Button>{' '}
+      <Button variant="primary">New Task</Button>
         </Row>
 
         </Container>
