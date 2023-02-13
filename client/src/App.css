@@ -1,4 +1,4 @@
-
+/* Background Animation Start */
 body {
   background: -moz-linear-gradient(
     45deg,
@@ -163,6 +163,8 @@ body::after {
   fill: #ffffff;
   enable-background: new;
 }
+
+/* Background Animation End */
 
 
 .App {
