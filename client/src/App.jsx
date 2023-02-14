@@ -12,6 +12,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //Styles
 import "./App.css";
 
+import Task from "./components/TaskCard";
+
 function App() {
   return (
     <Container fluid className="App">
@@ -43,7 +45,7 @@ function App() {
           </Row>
 
           <Row className="task-items">
-            <p>item1</p>
+            <Task/>
           </Row>
 
           <Row className="button-area">
