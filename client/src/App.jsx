@@ -46,7 +46,11 @@ function App() {
 
           <Row className="task-items">
             <Task/>
+            <Task/>
+            <Task/>
+            
           </Row>
+
 
           <Row className="button-area">
       <Button variant="primary">New Task</Button>
