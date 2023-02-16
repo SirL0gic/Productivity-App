@@ -7,8 +7,13 @@
 .edit-button{
     background: none;
     border: none;
-    width: 20px;
-    height: 20px;
+    
+
+}
+
+.edit-image {
+    width: 30px;
+    height: 30px;
 
 }
 
