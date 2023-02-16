@@ -1,5 +1,15 @@
 .del-button{
     margin-left: 130px;
+    background: none;
+ 
+}
+
+.edit-button{
+    background: none;
+    border: none;
+    width: 20px;
+    height: 20px;
+
 }
 
 #checklist {
