@@ -15,5 +15,3 @@ let Task = () => {
 };
 
 export default Task;
-// 5-7 days 
-
