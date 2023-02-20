@@ -1,3 +1,6 @@
+import { useState } from "react";
+
+
 //Bootstrap-npm-lib
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -26,6 +29,10 @@ let day_name = weekday[current_date.getDay()];
 
 
 function App() {
+
+  const [taskList,setTaskList] = useState([]);
+
+
   return (
     <Container fluid className="App">
       <Row className="title-area">
