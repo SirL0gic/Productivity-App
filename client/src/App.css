@@ -180,7 +180,7 @@ body::after {
 }
 
 .title-area {
-  margin-top: -550px;
+  margin-top: -420px;
   margin-bottom: 50px;
 }
 
@@ -215,5 +215,6 @@ body::after {
 .day-area{
   margin-top: 15px;
   text-align: right;
+  font-weight: bold;
 
 }
