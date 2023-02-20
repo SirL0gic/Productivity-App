@@ -49,7 +49,7 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   function handleAddTodo() {
-    setTodos([...todos, { id: todos.length + 1, text: "New todo" }]);
+    setTodos([...todos, { id: todos.length + 1, text: <Task /> }]);
   }
 
   return (
@@ -78,7 +78,6 @@ function App() {
           </Row>
 
           <Row className="task-items">
-            <Task />
             <ul>
               {todos.map((todo) => (
                 <li key={todo.id}>{todo.text}</li>
