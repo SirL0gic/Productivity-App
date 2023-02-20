@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 //Bootstrap-npm-lib
@@ -30,7 +30,16 @@ let day_name = weekday[current_date.getDay()];
 
 function App() {
 
-  const [taskList,setTaskList] = useState([]);
+  const [items,setItems] = useState([]);
+
+
+  useEffect(() => {
+  
+        setItems(1,2,3);
+   
+  }, []);
+
+
 
 
   return (
@@ -60,6 +69,7 @@ function App() {
 
           <Row className="task-items">
             <Task />
+            {items}
           </Row>
 
           <Row className="button-area">
