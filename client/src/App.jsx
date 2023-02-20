@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-
 //Bootstrap-npm-lib
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -16,10 +15,29 @@ import "./App.css";
 
 import Task from "./components/TaskCard";
 
-
-let month_list = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-let weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-
+let month_list = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+let weekday = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
 let current_date = new Date();
 let year = current_date.getFullYear();
@@ -27,20 +45,12 @@ let month = month_list[current_date.getMonth()];
 let day = current_date.getDate();
 let day_name = weekday[current_date.getDay()];
 
-
 function App() {
+  const [todos, setTodos] = useState([]);
 
-  const [items,setItems] = useState([]);
-
-
-  useEffect(() => {
-  
-        setItems(1,2,3);
-   
-  }, []);
-
-
-
+  function handleAddTodo() {
+    setTodos([...todos, { id: todos.length + 1, text: "New todo" }]);
+  }
 
   return (
     <Container fluid className="App">
@@ -69,11 +79,17 @@ function App() {
 
           <Row className="task-items">
             <Task />
-            {items}
+            <ul>
+              {todos.map((todo) => (
+                <li key={todo.id}>{todo.text}</li>
+              ))}
+            </ul>
           </Row>
 
           <Row className="button-area">
-            <Button variant="primary">New Task</Button>
+            <Button variant="primary" onClick={handleAddTodo}>
+              New Task
+            </Button>
           </Row>
         </Container>
       </Row>
