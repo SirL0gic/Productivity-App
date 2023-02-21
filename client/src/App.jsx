@@ -50,6 +50,33 @@ let day_name = weekday[current_date.getDay()];
 function App() {
 
 
+  const [taskList, setTaskList] = useState([]);
+  const [newTask, setNewTask] = useState('');
+
+  const handleTaskInputChange = (event) => {
+    setNewTask(event.target.value);
+  };
+
+  const handleAddTask = () => {
+    if (newTask.trim() !== '') {
+      setTaskList([...taskList, { task: newTask, completed: false }]);
+      setNewTask('');
+    }
+  };
+
+  const handleCompleteTask = (taskIndex) => {
+    const newTaskList = [...taskList];
+    newTaskList[taskIndex].completed = true;
+    setTaskList(newTaskList);
+  };
+
+  const handleRemoveTask = (taskIndex) => {
+    const newTaskList = [...taskList];
+    newTaskList.splice(taskIndex, 1);
+    setTaskList(newTaskList);
+  };
+
+
   return (
     <Container fluid className="App">
       <Row className="title-area">
@@ -76,32 +103,28 @@ function App() {
           </Row>
 
           <Row className="task-items">
+          <div>
+      <h1>To-Do List</h1>
+      <input type="text" value={newTask} onChange={handleTaskInputChange} />
+      <button onClick={handleAddTask}>Add Task</button>
+      <ul>
+        {taskList.map((task, index) => (
+          <li key={index}>
+            {task.completed ? (
+              <del>{task.task}</del>
+            ) : (
+              task.task
+            )}
+            <button onClick={() => handleCompleteTask(index)}>Complete</button>
+            <button onClick={() => handleRemoveTask(index)}>Remove</button>
+          </li>
+        ))}
+      </ul>
+    </div>
          
           </Row>
 
-          <Row>
-
-            <div className="button-container">
-
-              <form>
-
-                <input className="task-input-box" type="text"   />
-
-                   <button className="add-button" type="submit">
-
-                <img
-                  className="add-image"
-                  alt="imagee"
-                  src={require("./images/icons8-add-50.png")}
-                />
-
-              </button>
-
-              </form>
-           
-            </div>
-
-          </Row>
+        
         </Container>
       </Row>
     </Container>
