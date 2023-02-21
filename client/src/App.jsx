@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 //Bootstrap-npm-lib
 import Row from "react-bootstrap/Row";
@@ -89,6 +89,12 @@ function App() {
             <Button variant="primary" onClick={handleAddTodo}>
               New Task
             </Button>
+          </Row>
+
+          <Row>
+            <form>
+              <input type="text" />
+            </form>
           </Row>
         </Container>
       </Row>
