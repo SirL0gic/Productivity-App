@@ -12,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 //Styles
 import "./App.css";
+import "./newtask.css"
 
 import Task from "./components/TaskCard";
 import NewTask from "./components/NewTask";
@@ -48,11 +49,17 @@ let day_name = weekday[current_date.getDay()];
 
 function App() {
 
-  // const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([]);
 
   // function handleAddTodo() {
   //   setTodos([...todos, { id: todos.length + 1, text: <Task heading="hello" /> }]);
   // }
+
+  let test = (event) =>{
+    event.preventDefault();
+    console.log()
+
+  }
 
   return (
     <Container fluid className="App">
@@ -94,10 +101,20 @@ function App() {
           </Row> */}
 
           <Row>
-            <NewTask/>
+            <div className="button-container">
+              <form onSubmit={test}>
+                <input className="task-input-box" type="text" />
+                   <button className="add-button" type="submit">
+                <img
+                  className="add-image"
+                  alt="imagee"
+                  src={require("./images/icons8-add-50.png")}
+                />
+              </button>
+              </form>
+           
+            </div>
           </Row>
-    
-        
         </Container>
       </Row>
     </Container>

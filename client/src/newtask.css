@@ -1,23 +1,22 @@
-.button-container{
-    display: flex;
-   
+.button-container {
+  display: flex;
 }
 
-.add-button{
-    background: none;
-border: none;
-margin-left: 190px;
-
+.add-button {
+  background: none;
+  border: none;
+  margin-left: 190px;
+  margin-bottom: 10px;
 }
 
-
-.add-image{
-    width: 40px;
-    height: 40px;
-
+.add-image {
+  width: 40px;
+  height: 40px;
 }
 
-.task-input-box{
-    width: 180%;
-    height: 80%;
+.task-input-box {
+  width: 180%;
+  height: 80%;
+  border-style: dashed;
+  /* font-size: 10px; */
 }
