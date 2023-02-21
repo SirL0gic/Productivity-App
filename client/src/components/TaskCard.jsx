@@ -3,7 +3,7 @@ import { useState } from "react";
 //Styles
 import "../task.css";
 
-let Task = () => {
+let Task = (props) => {
   const [isChecked, setIsChecked] = useState(false);
 
   function handleCheckboxChange(e) {
@@ -19,7 +19,7 @@ let Task = () => {
         checked={isChecked}
         onChange={handleCheckboxChange}
       />
-      <label className="taskname">Bread</label>
+      <label className="taskname">{props.heading}</label>
       <button className="edit-button">
         <img
           className="edit-image"

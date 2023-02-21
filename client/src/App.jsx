@@ -14,6 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import Task from "./components/TaskCard";
+import NewTask from "./components/NewTask";
 
 let month_list = [
   "January",
@@ -46,11 +47,12 @@ let day = current_date.getDate();
 let day_name = weekday[current_date.getDay()];
 
 function App() {
-  const [todos, setTodos] = useState([]);
 
-  function handleAddTodo() {
-    setTodos([...todos, { id: todos.length + 1, text: <Task /> }]);
-  }
+  // const [todos, setTodos] = useState([]);
+
+  // function handleAddTodo() {
+  //   setTodos([...todos, { id: todos.length + 1, text: <Task heading="hello" /> }]);
+  // }
 
   return (
     <Container fluid className="App">
@@ -78,24 +80,24 @@ function App() {
           </Row>
 
           <Row className="task-items">
-            <ul>
+            {/* <ul>
               {todos.map((todo) => (
                 <li key={todo.id}>{todo.text}</li>
               ))}
-            </ul>
+            </ul> */}
           </Row>
 
-          <Row className="button-area">
+          {/* <Row className="button-area">
             <Button variant="primary" onClick={handleAddTodo}>
               New Task
             </Button>
-          </Row>
+          </Row> */}
 
           <Row>
-            <form>
-              <input type="text" />
-            </form>
+            <NewTask/>
           </Row>
+    
+        
         </Container>
       </Row>
     </Container>

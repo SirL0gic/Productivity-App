@@ -1,0 +1,19 @@
+.button-container{
+    display: flex;
+   
+}
+
+.add-button{
+    background: none;
+border: none;
+margin-left: 190px;
+
+}
+
+
+.add-image{
+    width: 40px;
+    height: 40px;
+
+}
+
