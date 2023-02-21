@@ -52,6 +52,9 @@ function App() {
 
   const [taskList, setTaskList] = useState([]);
   const [newTask, setNewTask] = useState('');
+  const [editingTaskIndex, setEditingTaskIndex] = useState(null);
+  const [editingTaskValue, setEditingTaskValue] = useState('');
+
 
   const handleTaskInputChange = (event) => {
     setNewTask(event.target.value);
@@ -70,11 +73,33 @@ function App() {
     setTaskList(newTaskList);
   };
 
+  const handleEditTask = (taskIndex) => {
+    setEditingTaskIndex(taskIndex);
+    setEditingTaskValue(taskList[taskIndex].task);
+  };
+
+  const handleCancelEditTask = () => {
+    setEditingTaskIndex(null);
+    setEditingTaskValue('');
+  };
+
+  const handleSaveTask = () => {
+    if (editingTaskValue.trim() !== '') {
+      const newTaskList = [...taskList];
+      newTaskList[editingTaskIndex].task = editingTaskValue;
+      setTaskList(newTaskList);
+      setEditingTaskIndex(null);
+      setEditingTaskValue('');
+    }
+  };
+
   const handleRemoveTask = (taskIndex) => {
     const newTaskList = [...taskList];
     newTaskList.splice(taskIndex, 1);
     setTaskList(newTaskList);
   };
+
+
 
 
   return (
@@ -103,6 +128,8 @@ function App() {
           </Row>
 
           <Row className="task-items">
+  
+
           <div>
       <h1>To-Do List</h1>
       <input type="text" value={newTask} onChange={handleTaskInputChange} />
@@ -110,13 +137,28 @@ function App() {
       <ul>
         {taskList.map((task, index) => (
           <li key={index}>
-            {task.completed ? (
-              <del>{task.task}</del>
+            {editingTaskIndex === index ? (
+              <>
+                <input
+                  type="text"
+                  value={editingTaskValue}
+                  onChange={(event) => setEditingTaskValue(event.target.value)}
+                />
+                <button onClick={handleSaveTask}>Save</button>
+                <button onClick={handleCancelEditTask}>Cancel</button>
+              </>
             ) : (
-              task.task
+              <>
+                {task.completed ? (
+                  <del>{task.task}</del>
+                ) : (
+                  task.task
+                )}
+                <button onClick={() => handleCompleteTask(index)}>Complete</button>
+                <button onClick={() => handleEditTask(index)}>Edit</button>
+                <button onClick={() => handleRemoveTask(index)}>Remove</button>
+              </>
             )}
-            <button onClick={() => handleCompleteTask(index)}>Complete</button>
-            <button onClick={() => handleRemoveTask(index)}>Remove</button>
           </li>
         ))}
       </ul>
