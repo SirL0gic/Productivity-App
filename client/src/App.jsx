@@ -4,7 +4,7 @@ import { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+
 
 //Bootstrap-Bundle-JS-CSS
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -49,17 +49,6 @@ let day_name = weekday[current_date.getDay()];
 
 function App() {
 
-  const [todos, setTodos] = useState([]);
-
-  // function handleAddTodo() {
-  //   setTodos([...todos, { id: todos.length + 1, text: <Task heading="hello" /> }]);
-  // }
-
-  let test = (event) =>{
-    event.preventDefault();
-    console.log()
-
-  }
 
   return (
     <Container fluid className="App">
@@ -87,33 +76,31 @@ function App() {
           </Row>
 
           <Row className="task-items">
-            {/* <ul>
-              {todos.map((todo) => (
-                <li key={todo.id}>{todo.text}</li>
-              ))}
-            </ul> */}
+         
           </Row>
 
-          {/* <Row className="button-area">
-            <Button variant="primary" onClick={handleAddTodo}>
-              New Task
-            </Button>
-          </Row> */}
-
           <Row>
+
             <div className="button-container">
-              <form onSubmit={test}>
-                <input className="task-input-box" type="text" />
+
+              <form>
+
+                <input className="task-input-box" type="text"   />
+
                    <button className="add-button" type="submit">
+
                 <img
                   className="add-image"
                   alt="imagee"
                   src={require("./images/icons8-add-50.png")}
                 />
+
               </button>
+
               </form>
            
             </div>
+
           </Row>
         </Container>
       </Row>
