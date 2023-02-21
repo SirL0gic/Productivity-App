@@ -5,7 +5,7 @@ let NewTask = () => {
   return (
     <div className="button-container">
       <form>
-        <input type="text" />
+        <input className="task-input-box" type="text" />
       </form>
       <button className="add-button">
         <img
