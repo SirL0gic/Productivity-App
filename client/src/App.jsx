@@ -171,26 +171,30 @@ import NewTask from "./components/NewTask";
 
 // export default App;
 
-
-let App = () =>{
-
-  const [taskList, setTaskList] = useState([]); //for adding all tasks as a list.
+let App = () => {
   const [newTask, setNewTask] = useState(""); // this is for setting the task name.
+  const [taskList, setTaskList] = useState([]); //for adding all tasks as a list.
 
-  let handleNewTaskSubmit = () => {
-
+  let handleNewTaskChange = (event) => {
+    setNewTask(event.target.value); // the value of the input box
   };
 
+  let handleNewTaskSubmit = (event) => {
+    event.preventDefault(); // does not refresh page
+  };
 
-  return(
+  return (
     <div>
       <form onSubmit={handleNewTaskSubmit}>
-        <input></input>
-        <button></button>
+        <input
+          type="text"
+          value={newTask}
+          onChange={handleNewTaskChange}
+        ></input>
+        <button type="sumbit">Add Task</button>
       </form>
-
     </div>
   );
-}
+};
 
 export default App;
