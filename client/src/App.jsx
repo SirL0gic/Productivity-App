@@ -181,17 +181,16 @@ let App = () => {
 
   let handleNewTaskSubmit = (event) => {
     // Prevent the default form submission behavior, which would cause the page to reload.
-    event.preventDefault(); 
+    event.preventDefault();
 
     // If the new task is not an empty string (after trimming any whitespace),
     // add it to the task list by creating a new array with the existing tasks and the new task object
-    if (newTask.trim()){
-      setTaskList([...taskList,{text: newTask, completed: false}]);
+    if (newTask.trim()) {
+      setTaskList([...taskList, { text: newTask, completed: false }]);
 
-    // Reset the new task state variable to an empty string
-    setNewTask('');
-
-    };
+      // Reset the new task state variable to an empty string
+      setNewTask("");
+    }
   };
 
   return (
@@ -206,7 +205,14 @@ let App = () => {
       </form>
 
       <ul>
-        
+        {taskList.map((eachitem, index) => {
+          <li key={index}>
+            {eachitem.completed ? <s>{eachitem.text}</s> : eachitem.text}
+            <button>Complete</button>
+            <button>Edit</button>
+            <button>Remove</button>
+          </li>;
+        })}
       </ul>
     </div>
   );
