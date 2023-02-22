@@ -180,7 +180,18 @@ let App = () => {
   };
 
   let handleNewTaskSubmit = (event) => {
-    event.preventDefault(); // does not refresh page
+    // Prevent the default form submission behavior, which would cause the page to reload.
+    event.preventDefault(); 
+
+    // If the new task is not an empty string (after trimming any whitespace),
+    // add it to the task list by creating a new array with the existing tasks and the new task object
+    if (newTask.trim()){
+      setTaskList([...taskList,{text: newTask, completed: false}]);
+
+    // Reset the new task state variable to an empty string
+    setNewTask('');
+
+    };
   };
 
   return (
@@ -191,8 +202,12 @@ let App = () => {
           value={newTask}
           onChange={handleNewTaskChange}
         ></input>
-        <button type="sumbit">Add Task</button>
+        <button type="submit">Add Task</button>
       </form>
+
+      <ul>
+        
+      </ul>
     </div>
   );
 };
