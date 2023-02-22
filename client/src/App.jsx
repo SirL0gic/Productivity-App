@@ -174,11 +174,20 @@ import NewTask from "./components/NewTask";
 
 let App = () =>{
 
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState([]); //for adding all tasks as a list.
+  const [newTask, setNewTask] = useState(""); // this is for setting the task name.
+
+  let handleNewTaskSubmit = () => {
+
+  };
 
 
   return(
     <div>
+      <form onSubmit={handleNewTaskSubmit}>
+        <input></input>
+        <button></button>
+      </form>
 
     </div>
   );
