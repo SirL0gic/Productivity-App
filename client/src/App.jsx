@@ -175,6 +175,9 @@ let App = () => {
   const [newTask, setNewTask] = useState(""); // this is for setting the task name.
   const [taskList, setTaskList] = useState([]); //for adding all tasks as a list.
 
+  // const [editingTaskIndex, setEditingTaskIndex] = useState(null);
+  // const [editingTaskValue, setEditingTaskValue] = useState("");
+
   let handleNewTaskChange = (event) => {
     setNewTask(event.target.value); // the value of the input box
   };
@@ -206,12 +209,14 @@ let App = () => {
 
       <ul>
         {taskList.map((eachitem, index) => {
+          return (
           <li key={index}>
             {eachitem.completed ? <s>{eachitem.text}</s> : eachitem.text}
             <button>Complete</button>
             <button>Edit</button>
             <button>Remove</button>
-          </li>;
+          </li>
+          );
         })}
       </ul>
     </div>
