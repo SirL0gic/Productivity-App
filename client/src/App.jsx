@@ -194,8 +194,8 @@ let App = () => {
   };
 
   let handleTaskDelete = (index) =>{
-      // Use the filter method to create a new array that only includes tasks
-     // that don't match the index of the task we want to delete
+    // Use the filter method to create a new array that only includes tasks
+    // that don't match the index of the task we want to delete
 
     const filteredTasks = taskList.filter((taskname,taskindex)=>taskindex !== index);
 
