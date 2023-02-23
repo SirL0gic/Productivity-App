@@ -196,6 +196,17 @@ let App = () => {
     }
   };
 
+  let handleTaskDelete = (index) =>{
+      // Use the filter method to create a new array that only includes tasks
+     // that don't match the index of the task we want to delete
+
+    const filteredTasks = taskList.filter((taskname,taskindex)=>taskindex !== index);
+
+    // Set the task list state to the new filtered array
+    setTaskList(filteredTasks);
+    
+  }
+
   return (
     <div>
       <form onSubmit={handleNewTaskSubmit}>
@@ -214,7 +225,7 @@ let App = () => {
             {eachitem.completed ? <s>{eachitem.text}</s> : eachitem.text}
             <button>Complete</button>
             <button>Edit</button>
-            <button>Remove</button>
+            <button onClick={() => handleTaskDelete(index)}>Remove</button>
           </li>
           );
         })}
