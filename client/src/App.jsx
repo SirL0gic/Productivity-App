@@ -175,6 +175,10 @@ let App = () => {
   const [newTask, setNewTask] = useState(""); // this is for setting the task name.
   const [taskList, setTaskList] = useState([]); //for adding all tasks as a list.
 
+  //keep track of which task is being edited and its new value.
+  const [editingTaskIndex, setEditingTaskIndex] = useState(-1); //is initialized to -1 to indicate that no task is being edited 
+  const [editingTaskValue, setEditingTaskValue] = useState("");
+
   let handleNewTaskChange = (event) => {
     setNewTask(event.target.value); // the value of the input box
   };
@@ -210,7 +214,10 @@ let App = () => {
     setTaskList(newTaskList); // Update the task list state with the modified array
   };
   
-  
+  let handleTaskEdit = (index) => {
+    setEditingTaskIndex(index);
+    setEditingTaskValue(taskList[index].text);
+  };
 
   return (
     <div>
