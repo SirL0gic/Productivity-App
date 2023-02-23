@@ -202,7 +202,15 @@ let App = () => {
     // Set the task list state to the new filtered array
     setTaskList(filteredTasks);
     
-  }
+  };
+
+  let handleTaskCompletion = (index) => {
+    const newTaskList = [...taskList]; // Make a copy of the task list to avoid mutating the state directly
+    newTaskList[index].completed = !newTaskList[index].completed; // Toggle the completed property of the task at the given index
+    setTaskList(newTaskList); // Update the task list state with the modified array
+  };
+  
+  
 
   return (
     <div>
@@ -220,7 +228,7 @@ let App = () => {
           return (
           <li key={index}>
             {eachitem.completed ? <s>{eachitem.text}</s> : eachitem.text}
-            <button>Complete</button>
+            <button onClick={() => handleTaskCompletion(index)}>{eachitem.completed ? "Incomplete" : "Complete"}</button>
             <button>Edit</button>
             <button onClick={() => handleTaskDelete(index)}>Remove</button>
           </li>
