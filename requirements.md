@@ -1,12 +1,12 @@
 **Functional Requirements:**
 
-1.  User Input: The user should be able to enter a task into a text input field.
-2.  Task Addition: The user should be able to add a task to the list by clicking a button.
+1.  User Input: The user should be able to enter a task into a text input field. - DONE
+2.  Task Addition: The user should be able to add a task to the list by clicking a button. - DONE
 3.  Task Completion: The user should be able to mark a task as complete by clicking a button next to the task.
-4.  Task Removal: The user should be able to remove a task from the list by clicking a button next to the task.
-5.  Task Display: The list of tasks should be displayed in a user-friendly manner.
-6.  Data Storage: The list of tasks should be stored in the component's state.
-7.  Re-Rendering: The app should re-render whenever the state changes, to display the updated list of tasks.
+4.  Task Removal: The user should be able to remove a task from the list by clicking a button next to the task. - DONE
+5.  Task Display: The list of tasks should be displayed in a user-friendly manner. - DONE
+6.  Data Storage: The list of tasks should be stored in the component's state. - DONE
+7.  Re-Rendering: The app should re-render whenever the state changes, to display the updated list of tasks. -DONE
 
 **Non-Functional Requirements:**
 
