@@ -2,7 +2,7 @@
 
 1.  User Input: The user should be able to enter a task into a text input field. - DONE
 2.  Task Addition: The user should be able to add a task to the list by clicking a button. - DONE
-3.  Task Completion: The user should be able to mark a task as complete by clicking a button next to the task.
+3.  Task Completion: The user should be able to mark a task as complete by clicking a button next to the task. - DONE
 4.  Task Removal: The user should be able to remove a task from the list by clicking a button next to the task. - DONE
 5.  Task Display: The list of tasks should be displayed in a user-friendly manner. - DONE
 6.  Data Storage: The list of tasks should be stored in the component's state. - DONE
@@ -14,7 +14,6 @@
 2.  Performance: The app should load quickly and perform efficiently, even with a large number of tasks.
 3.  Scalability: The app should be able to handle an increasing number of tasks over time.
 4.  Security: The app should protect the user's data and prevent unauthorized access.
-5.  Accessibility: The app should be accessible to users with disabilities and meet the standards set by the Web Content Accessibility Guidelines (WCAG).
-6.  Code Quality: The code should be well-structured, easy to maintain, and follow best practices.
+5.  Code Quality: The code should be well-structured, easy to maintain, and follow best practices.
 
 
