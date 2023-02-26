@@ -12,10 +12,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //Styles
 import "./App.css";
 
-
-// import Task from "./components/TaskCard";
-// import NewTask from "./components/NewTask";
-
 let month_list = [
   "January",
   "February",
@@ -55,7 +51,6 @@ function App() {
   const [editingTaskValue, setEditingTaskValue] = useState("");
   const [editingTask, setEditingTask] = useState("");
 
-
   let handleNewTaskChange = (event) => {
     setNewTask(event.target.value); // the value of the input box
   };
@@ -75,7 +70,6 @@ function App() {
   };
 
   let handleTaskDelete = (index) => {
-
     // Use the filter method to create a new array that only includes tasks
     // that don't match the index of the task we want to delete
     const filteredTasks = taskList.filter(
@@ -143,64 +137,74 @@ function App() {
           </Row>
 
           <Row className="task-items">
-          <div>
-        <form onSubmit={handleNewTaskSubmit}>
-          <input type="text" value={newTask} onChange={handleNewTaskChange} />
-          <button type="submit">   <img
-          className="add-image"
-          alt="imagee"
-          src={require('./images/icons8-add-50.png')}
-        /></button>
-        </form>
-  
-        <ul>
-          {taskList.map((eachitem, index) => {
-            return (
-              <li key={index}>
-                {editingTaskIndex === index ? (
-                  <form onSubmit={handleTaskEditSubmit}>
-                    <input
-                      type="text"
-                      value={editingTask}
-                      onChange={handleTaskEditChange}
-                    />
-                    <button type="submit">Save</button>
-                    <button
-                      type="button"
-                      onClick={() => setEditingTaskIndex(-1)}
-                    >
-                      Cancel
-                    </button>
-                  </form>
-                ) : (
-                  <>
-                    {eachitem.completed ? (
-                      <s>{eachitem.text}</s>
-                    ) : (
-                      eachitem.text
-                    )}
-                    <button onClick={() => handleTaskCompletion(index)}>
-                      {eachitem.completed ? "Incomplete" : "Complete"}
-                    </button>
-                    <button onClick={() => handleTaskEdit(index)}>  <img
-          className="edit-image"
-          alt="editimage"
-          src="https://img.icons8.com/nolan/96/edit--v1.png"
-        /></button>
-                    <button onClick={() => handleTaskDelete(index)}>
-                    <img
-          className="del-image"
-          alt="delimage"
-          src="https://img.icons8.com/color/96/null/trash--v2.png"
-        />
-                    </button>
-                  </>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+            <div>
+              <form onSubmit={handleNewTaskSubmit}>
+                <input
+                  type="text"
+                  value={newTask}
+                  onChange={handleNewTaskChange}
+                />
+                <button type="submit">
+                  {" "}
+                  <img
+                    className="add-image"
+                    alt="imagee"
+                    src={require("./images/icons8-add-50.png")}
+                  />
+                </button>
+              </form>
+
+              <ul>
+                {taskList.map((eachitem, index) => {
+                  return (
+                    <li key={index}>
+                      {editingTaskIndex === index ? (
+                        <form onSubmit={handleTaskEditSubmit}>
+                          <input
+                            type="text"
+                            value={editingTask}
+                            onChange={handleTaskEditChange}
+                          />
+                          <button type="submit">Save</button>
+                          <button
+                            type="button"
+                            onClick={() => setEditingTaskIndex(-1)}
+                          >
+                            Cancel
+                          </button>
+                        </form>
+                      ) : (
+                        <>
+                          {eachitem.completed ? (
+                            <s>{eachitem.text}</s>
+                          ) : (
+                            eachitem.text
+                          )}
+                          <button onClick={() => handleTaskCompletion(index)}>
+                            {eachitem.completed ? "Incomplete" : "Complete"}
+                          </button>
+                          <button onClick={() => handleTaskEdit(index)}>
+                            {" "}
+                            <img
+                              className="edit-image"
+                              alt="editimage"
+                              src="https://img.icons8.com/nolan/96/edit--v1.png"
+                            />
+                          </button>
+                          <button onClick={() => handleTaskDelete(index)}>
+                            <img
+                              className="del-image"
+                              alt="delimage"
+                              src="https://img.icons8.com/color/96/null/trash--v2.png"
+                            />
+                          </button>
+                        </>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </Row>
         </Container>
       </Row>

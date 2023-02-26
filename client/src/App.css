@@ -222,3 +222,58 @@ ul{
   font-weight: bold;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.check {
+  margin-right: 10px;
+  height: 21px;
+  width: 21px;
+  border-style: groove;
+}
+
+.del-button{
+  margin-left: 10px;
+  background: none;
+  border: none;
+
+}
+
+.edit-button{
+  background: none;
+  border: none;
+  margin-left: 260px;
+}
+
+.edit-image {
+  width: 30px;
+  height: 30px;
+}
+
+.del-image {
+  width: 30px;
+  height: 30px;
+}
+
+.taskname{
+  font-size: 29px;
+}
+
+.checklist{
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  
+}
