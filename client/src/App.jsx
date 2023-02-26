@@ -11,7 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 //Styles
 import "./App.css";
-import "./newtask.css";
+
 
 // import Task from "./components/TaskCard";
 // import NewTask from "./components/NewTask";
@@ -75,9 +75,9 @@ function App() {
   };
 
   let handleTaskDelete = (index) => {
+
     // Use the filter method to create a new array that only includes tasks
     // that don't match the index of the task we want to delete
-
     const filteredTasks = taskList.filter(
       (taskname, taskindex) => taskindex !== index
     );
@@ -122,7 +122,7 @@ function App() {
       <Row className="title-area">
         <h1 className="text-pop-up-top">&#128221; To Do List &#128221;</h1>
       </Row>
-      
+
       <Row className="list-area">
         <Container>
           <Row className="date-time">
@@ -146,7 +146,11 @@ function App() {
           <div>
         <form onSubmit={handleNewTaskSubmit}>
           <input type="text" value={newTask} onChange={handleNewTaskChange} />
-          <button type="submit">Add Task</button>
+          <button type="submit">   <img
+          className="add-image"
+          alt="imagee"
+          src={require('./images/icons8-add-50.png')}
+        /></button>
         </form>
   
         <ul>
@@ -178,9 +182,17 @@ function App() {
                     <button onClick={() => handleTaskCompletion(index)}>
                       {eachitem.completed ? "Incomplete" : "Complete"}
                     </button>
-                    <button onClick={() => handleTaskEdit(index)}>Edit</button>
+                    <button onClick={() => handleTaskEdit(index)}>  <img
+          className="edit-image"
+          alt="editimage"
+          src="https://img.icons8.com/nolan/96/edit--v1.png"
+        /></button>
                     <button onClick={() => handleTaskDelete(index)}>
-                      Remove
+                    <img
+          className="del-image"
+          alt="delimage"
+          src="https://img.icons8.com/color/96/null/trash--v2.png"
+        />
                     </button>
                   </>
                 )}
