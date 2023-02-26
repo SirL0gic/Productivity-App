@@ -85,4 +85,7 @@ The code uses the following React components:
 
 ## Styling
 
-The application uses a custom CSS file (`App.css`) and a Bootstrap CSS file (`bootstrap.min.css`) for styling. T
+The application uses a custom CSS file (`App.css`) and a Bootstrap CSS file (`bootstrap.min.css`) for styling. 
+
+### Demo SC:
+![alt text](https://i.imgur.com/Gs4ug08.png)
