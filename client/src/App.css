@@ -220,28 +220,17 @@ ul{
   margin-top: 15px;
   text-align: right;
   font-weight: bold;
-
 }
 
+.add-button{
+  background: none;
+  border: none;
+}
 
+.first-input{
+  width: 89%;
+  border-radius: 10px;
 
-
-
-
-
-
-
-
-
-
-
-
-
-.check {
-  margin-right: 10px;
-  height: 21px;
-  width: 21px;
-  border-style: groove;
 }
 
 .del-button{
@@ -276,4 +265,8 @@ ul{
   margin-bottom: 20px;
   padding-bottom: 10px;
   
+}
+
+.fle-box{
+  display: flex;
 }

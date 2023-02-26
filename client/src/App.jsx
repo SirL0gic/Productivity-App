@@ -139,12 +139,14 @@ function App() {
           <Row className="task-items">
             <div>
               <form onSubmit={handleNewTaskSubmit}>
+                <div className="fle-box">
                 <input
+                className="first-input"
                   type="text"
                   value={newTask}
                   onChange={handleNewTaskChange}
                 />
-                <button type="submit">
+                <button className="add-button" type="submit">
                   {" "}
                   <img
                     className="add-image"
@@ -152,6 +154,7 @@ function App() {
                     src={require("./images/icons8-add-50.png")}
                   />
                 </button>
+                </div>
               </form>
 
               <ul>
@@ -183,7 +186,7 @@ function App() {
                           <button onClick={() => handleTaskCompletion(index)}>
                             {eachitem.completed ? "Incomplete" : "Complete"}
                           </button>
-                          <button onClick={() => handleTaskEdit(index)}>
+                          <button className="edit-button" onClick={() => handleTaskEdit(index)}>
                             {" "}
                             <img
                               className="edit-image"
