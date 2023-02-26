@@ -7,6 +7,7 @@
 5.  Task Display: The list of tasks should be displayed in a user-friendly manner. - DONE
 6.  Data Storage: The list of tasks should be stored in the component's state. - DONE
 7.  Re-Rendering: The app should re-render whenever the state changes, to display the updated list of tasks. -DONE
+8.  Task Edit: User must be able to edit tasks.
 
 **Non-Functional Requirements:**
 
