@@ -47,52 +47,52 @@ let day = current_date.getDate();
 let day_name = weekday[current_date.getDay()];
 
 function App() {
-  const [taskList, setTaskList] = useState([]);
-  const [newTask, setNewTask] = useState("");
-  const [editingTaskIndex, setEditingTaskIndex] = useState(null);
+  const [newTask, setNewTask] = useState(""); // this is for setting the task name.
+  const [taskList, setTaskList] = useState([]); //for adding all tasks as a list.
+
+  //keep track of which task is being edited and its new value.
+  const [editingTaskIndex, setEditingTaskIndex] = useState(-1); //is initialized to -1 to indicate that no task is being edited
   const [editingTaskValue, setEditingTaskValue] = useState("");
 
-  const handleTaskInputChange = (event) => {
-    setNewTask(event.target.value);
+  let handleNewTaskChange = (event) => {
+    setNewTask(event.target.value); // the value of the input box
   };
 
-  const handleAddTask = () => {
-    if (newTask.trim() !== "") {
-      setTaskList([...taskList, { task: newTask, completed: false }]);
+  let handleNewTaskSubmit = (event) => {
+    // Prevent the default form submission behavior, which would cause the page to reload.
+    event.preventDefault();
+
+    // If the new task is not an empty string (after trimming any whitespace),
+    // add it to the task list by creating a new array with the existing tasks and the new task object
+    if (newTask.trim()) {
+      setTaskList([...taskList, { text: newTask, completed: false }]);
+
+      // Reset the new task state variable to an empty string
       setNewTask("");
     }
   };
 
-  const handleCompleteTask = (taskIndex) => {
-    const newTaskList = [...taskList];
-    newTaskList[taskIndex].completed = true;
-    setTaskList(newTaskList);
+  let handleTaskDelete = (index) => {
+    // Use the filter method to create a new array that only includes tasks
+    // that don't match the index of the task we want to delete
+
+    const filteredTasks = taskList.filter(
+      (taskname, taskindex) => taskindex !== index
+    );
+
+    // Set the task list state to the new filtered array
+    setTaskList(filteredTasks);
   };
 
-  const handleEditTask = (taskIndex) => {
-    setEditingTaskIndex(taskIndex);
-    setEditingTaskValue(taskList[taskIndex].task);
+  let handleTaskCompletion = (index) => {
+    const newTaskList = [...taskList]; // Make a copy of the task list to avoid mutating the state directly
+    newTaskList[index].completed = !newTaskList[index].completed; // Toggle the completed property of the task at the given index
+    setTaskList(newTaskList); // Update the task list state with the modified array
   };
 
-  const handleCancelEditTask = () => {
-    setEditingTaskIndex(null);
-    setEditingTaskValue("");
-  };
-
-  const handleSaveTask = () => {
-    if (editingTaskValue.trim() !== "") {
-      const newTaskList = [...taskList];
-      newTaskList[editingTaskIndex].task = editingTaskValue;
-      setTaskList(newTaskList);
-      setEditingTaskIndex(null);
-      setEditingTaskValue("");
-    }
-  };
-
-  const handleRemoveTask = (taskIndex) => {
-    const newTaskList = [...taskList];
-    newTaskList.splice(taskIndex, 1);
-    setTaskList(newTaskList);
+  let handleTaskEdit = (index) => {
+    setEditingTaskIndex(index);
+    setEditingTaskValue(taskList[index].text);
   };
 
   return (
@@ -122,44 +122,34 @@ function App() {
 
           <Row className="task-items">
             <div>
-              <h1>To-Do List</h1>
-              <input
-                type="text"
-                value={newTask}
-                onChange={handleTaskInputChange}
-              />
-              <button onClick={handleAddTask}>Add Task</button>
+              <form onSubmit={handleNewTaskSubmit}>
+                <input
+                  type="text"
+                  value={newTask}
+                  onChange={handleNewTaskChange}
+                ></input>
+                <button type="submit">Add Task</button>
+              </form>
+
               <ul>
-                {taskList.map((task, index) => (
-                  <li key={index}>
-                    {editingTaskIndex === index ? (
-                      <>
-                        <input
-                          type="text"
-                          value={editingTaskValue}
-                          onChange={(event) =>
-                            setEditingTaskValue(event.target.value)
-                          }
-                        />
-                        <button onClick={handleSaveTask}>Save</button>
-                        <button onClick={handleCancelEditTask}>Cancel</button>
-                      </>
-                    ) : (
-                      <>
-                        {task.completed ? <del>{task.task}</del> : task.task}
-                        <button onClick={() => handleCompleteTask(index)}>
-                          Complete
-                        </button>
-                        <button onClick={() => handleEditTask(index)}>
-                          Edit
-                        </button>
-                        <button onClick={() => handleRemoveTask(index)}>
-                          Remove
-                        </button>
-                      </>
-                    )}
-                  </li>
-                ))}
+                {taskList.map((eachitem, index) => {
+                  return (
+                    <li key={index}>
+                      {eachitem.completed ? (
+                        <s>{eachitem.text}</s>
+                      ) : (
+                        eachitem.text
+                      )}
+                      <button onClick={() => handleTaskCompletion(index)}>
+                        {eachitem.completed ? "Incomplete" : "Complete"}
+                      </button>
+                      <button>Edit</button>
+                      <button onClick={() => handleTaskDelete(index)}>
+                        Remove
+                      </button>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </Row>
@@ -170,4 +160,3 @@ function App() {
 }
 
 export default App;
-
