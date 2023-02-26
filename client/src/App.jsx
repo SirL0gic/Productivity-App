@@ -13,8 +13,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./newtask.css";
 
-import Task from "./components/TaskCard";
-import NewTask from "./components/NewTask";
+// import Task from "./components/TaskCard";
+// import NewTask from "./components/NewTask";
 
 let month_list = [
   "January",
@@ -53,6 +53,8 @@ function App() {
   //keep track of which task is being edited and its new value.
   const [editingTaskIndex, setEditingTaskIndex] = useState(-1); //is initialized to -1 to indicate that no task is being edited
   const [editingTaskValue, setEditingTaskValue] = useState("");
+  const [editingTask, setEditingTask] = useState("");
+
 
   let handleNewTaskChange = (event) => {
     setNewTask(event.target.value); // the value of the input box
@@ -95,12 +97,32 @@ function App() {
     setEditingTaskValue(taskList[index].text);
   };
 
+  let handleTaskEditChange = (event) => {
+    // Update the editing task state variable with the new value from the input box
+    setEditingTask(event.target.value);
+  };
+
+  let handleTaskEditSubmit = (event) => {
+    event.preventDefault();
+
+    if (editingTask.trim()) {
+      // Make a copy of the task list and update the text of the task at the editingTaskIndex
+      const newTaskList = [...taskList];
+      newTaskList[editingTaskIndex].text = editingTask;
+      setTaskList(newTaskList);
+
+      // Reset the editing task and index state variables
+      setEditingTask("");
+      setEditingTaskIndex(-1);
+    }
+  };
+
   return (
     <Container fluid className="App">
       <Row className="title-area">
         <h1 className="text-pop-up-top">&#128221; To Do List &#128221;</h1>
       </Row>
-
+      
       <Row className="list-area">
         <Container>
           <Row className="date-time">
@@ -121,37 +143,52 @@ function App() {
           </Row>
 
           <Row className="task-items">
-            <div>
-              <form onSubmit={handleNewTaskSubmit}>
-                <input
-                  type="text"
-                  value={newTask}
-                  onChange={handleNewTaskChange}
-                ></input>
-                <button type="submit">Add Task</button>
-              </form>
-
-              <ul>
-                {taskList.map((eachitem, index) => {
-                  return (
-                    <li key={index}>
-                      {eachitem.completed ? (
-                        <s>{eachitem.text}</s>
-                      ) : (
-                        eachitem.text
-                      )}
-                      <button onClick={() => handleTaskCompletion(index)}>
-                        {eachitem.completed ? "Incomplete" : "Complete"}
-                      </button>
-                      <button>Edit</button>
-                      <button onClick={() => handleTaskDelete(index)}>
-                        Remove
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+          <div>
+        <form onSubmit={handleNewTaskSubmit}>
+          <input type="text" value={newTask} onChange={handleNewTaskChange} />
+          <button type="submit">Add Task</button>
+        </form>
+  
+        <ul>
+          {taskList.map((eachitem, index) => {
+            return (
+              <li key={index}>
+                {editingTaskIndex === index ? (
+                  <form onSubmit={handleTaskEditSubmit}>
+                    <input
+                      type="text"
+                      value={editingTask}
+                      onChange={handleTaskEditChange}
+                    />
+                    <button type="submit">Save</button>
+                    <button
+                      type="button"
+                      onClick={() => setEditingTaskIndex(-1)}
+                    >
+                      Cancel
+                    </button>
+                  </form>
+                ) : (
+                  <>
+                    {eachitem.completed ? (
+                      <s>{eachitem.text}</s>
+                    ) : (
+                      eachitem.text
+                    )}
+                    <button onClick={() => handleTaskCompletion(index)}>
+                      {eachitem.completed ? "Incomplete" : "Complete"}
+                    </button>
+                    <button onClick={() => handleTaskEdit(index)}>Edit</button>
+                    <button onClick={() => handleTaskDelete(index)}>
+                      Remove
+                    </button>
+                  </>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
           </Row>
         </Container>
       </Row>
