@@ -48,7 +48,7 @@ function App() {
 
   //keep track of which task is being edited and its new value.
   const [editingTaskIndex, setEditingTaskIndex] = useState(-1); //is initialized to -1 to indicate that no task is being edited
-  const [editingTaskValue, setEditingTaskValue] = useState("");
+  // const [editingTaskValue, setEditingTaskValue] = useState("");
   const [editingTask, setEditingTask] = useState("");
 
   let handleNewTaskChange = (event) => {
@@ -88,7 +88,7 @@ function App() {
 
   let handleTaskEdit = (index) => {
     setEditingTaskIndex(index);
-    setEditingTaskValue(taskList[index].text);
+    // setEditingTaskValue(taskList[index].text);
   };
 
   let handleTaskEditChange = (event) => {
@@ -140,27 +140,27 @@ function App() {
             <div>
               <form onSubmit={handleNewTaskSubmit}>
                 <div className="fle-box">
-                <input
-                className="first-input"
-                  type="text"
-                  value={newTask}
-                  onChange={handleNewTaskChange}
-                />
-                <button className="add-button" type="submit">
-                  {" "}
-                  <img
-                    className="add-image"
-                    alt="imagee"
-                    src={require("./images/icons8-add-50.png")}
+                  <input
+                    className="first-input"
+                    type="text"
+                    value={newTask}
+                    onChange={handleNewTaskChange}
                   />
-                </button>
+                  <button className="add-button" type="submit">
+                    {" "}
+                    <img
+                      className="add-image"
+                      alt="imagee"
+                      src={require("./images/icons8-add-50.png")}
+                    />
+                  </button>
                 </div>
               </form>
 
-              <ul>
+              <ul className="render-ul">
                 {taskList.map((eachitem, index) => {
                   return (
-                    <li key={index}>
+                    <li className="render-li" key={index}>
                       {editingTaskIndex === index ? (
                         <form onSubmit={handleTaskEditSubmit}>
                           <input
@@ -168,25 +168,43 @@ function App() {
                             value={editingTask}
                             onChange={handleTaskEditChange}
                           />
-                          <button type="submit">Save</button>
-                          <button
+                          <button className="save-button" type="submit"> <img
+                              className="save-image"
+                              alt="imagee"
+                              src="https://img.icons8.com/nolan/96/save.png"
+                            /></button>
+                          <button className="cancel-button"
                             type="button"
                             onClick={() => setEditingTaskIndex(-1)}
                           >
-                            Cancel
+                             <img
+                              className="save-image"
+                              alt="imagee"
+                              src="https://img.icons8.com/nolan/96/cancel.png"
+                            />
                           </button>
                         </form>
                       ) : (
-                        <>
+                        <div className="buttons-box">
                           {eachitem.completed ? (
                             <s>{eachitem.text}</s>
                           ) : (
                             eachitem.text
                           )}
-                          <button onClick={() => handleTaskCompletion(index)}>
-                            {eachitem.completed ? "Incomplete" : "Complete"}
+                          <button
+                            className="complete-button"
+                            onClick={() => handleTaskCompletion(index)}
+                          >
+                            <img
+                              className="complete-image"
+                              alt="imagee"
+                              src="https://img.icons8.com/nolan/96/double-tick.png"
+                            />
                           </button>
-                          <button className="edit-button" onClick={() => handleTaskEdit(index)}>
+                          <button
+                            className="edit-button"
+                            onClick={() => handleTaskEdit(index)}
+                          >
                             {" "}
                             <img
                               className="edit-image"
@@ -194,14 +212,17 @@ function App() {
                               src="https://img.icons8.com/nolan/96/edit--v1.png"
                             />
                           </button>
-                          <button onClick={() => handleTaskDelete(index)}>
+                          <button
+                            className="del-button"
+                            onClick={() => handleTaskDelete(index)}
+                          >
                             <img
                               className="del-image"
                               alt="delimage"
                               src="https://img.icons8.com/color/96/null/trash--v2.png"
                             />
                           </button>
-                        </>
+                        </div>
                       )}
                     </li>
                   );
