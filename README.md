@@ -8,17 +8,17 @@ Demo: https://1drv.ms/v/s!Apck3DEmMLfWih9YJxfmPuTVJFDc?e=gaYp7M
 
 The code uses the following dependencies:
 
--   `react` - a JavaScript library for building user interfaces
--   `react-dom` - a package for rendering React components into the DOM
--   `react-bootstrap` - a React implementation of the Bootstrap framework
--   `bootstrap` - a popular CSS framework
+-   `react` - a JavaScript library for building user interfaces.
+-   `react-dom` - a package for rendering React components into the DOM.
+-   `react-bootstrap` - a React implementation of the Bootstrap framework.
+-   `bootstrap` - a popular CSS framework.
 
 ## Usage
 
-1.  Clone the repository or download the files
-2.  Navigate to the project directory in the terminal
-3.  Run `npm install` to install the dependencies
-4.  Run `npm start` to start the development server
+1.  Clone the repository or download the files.
+2.  Navigate to the project directory in the terminal.
+3.  Run `npm install` to install the dependencies.
+4.  Run `npm start` to start the development server.
 
 ## Functionality
 
