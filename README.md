@@ -50,7 +50,7 @@ For each task item, it first checks if the `editingTaskIndex` is equal to the cu
 If `editingTaskIndex` is not equal to the current index, the task is displayed as text. If the task is completed, it is rendered with a strike-through using the HTML `s` tag. If it is not completed, it is displayed normally. Below the task, there are three buttons: "Complete", "Edit", and "Remove". Clicking "Complete" will toggle the `completed` property of the task in the `taskList` array. Clicking "Edit" will set the `editingTaskIndex` to the current index and display the form to edit the task. Clicking "Remove" will remove the task from the `taskList` array.
 
 ### Each Function name and purpose
-1.  handleNewTaskChange This function is responsible for handling changes to the new task input field. It takes an event object as an argument and updates the newTask state variable with the value of the input field.
+1.  **handleNewTaskChange** This function is responsible for handling changes to the new task input field. It takes an event object as an argument and updates the newTask state variable with the value of the input field.
     
 2.  handleNewTaskSubmit This function is responsible for handling the submission of a new task. It takes an event object as an argument and prevents the default form submission behavior. If the new task input field is not empty (after trimming any whitespace), it creates a new task object and adds it to the taskList state variable by creating a new array. It then resets the newTask state variable to an empty string.
     
