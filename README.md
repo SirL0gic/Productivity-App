@@ -1,4 +1,4 @@
-# README Documentation
+# Documentation
 
 This code creates a Productivity web application using React.js and Bootstrap. The application allows users to add tasks, edit tasks, mark tasks as completed, and delete tasks.
 
@@ -81,7 +81,7 @@ The `editingTask` state is initialized with an empty string `""`, and is respons
 
 The code uses the following React components:
 
--   `App` - the main component that renders the To-Do List application
+-   `App` - the main component that renders the To-Do List application.
 
 ## Styling
 
