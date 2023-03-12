@@ -168,16 +168,20 @@ function App() {
                             value={editingTask}
                             onChange={handleTaskEditChange}
                           />
-                          <button className="save-button" type="submit"> <img
+                          <button className="save-button" type="submit">
+                            {" "}
+                            <img
                               className="save-image"
                               alt="imagee"
                               src="https://img.icons8.com/nolan/96/save.png"
-                            /></button>
-                          <button className="cancel-button"
+                            />
+                          </button>
+                          <button
+                            className="cancel-button"
                             type="button"
                             onClick={() => setEditingTaskIndex(-1)}
                           >
-                             <img
+                            <img
                               className="save-image"
                               alt="imagee"
                               src="https://img.icons8.com/nolan/96/cancel.png"
